@@ -1,26 +1,31 @@
 function millisToMinutesAndSeconds(millis) {
   var minutes = Math.floor(millis / 60000);
   var seconds = ((millis % 60000) / 1000).toFixed(0);
-  return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+  return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 }
 
-const init = document.querySelector(".init");
-const time = document.querySelector(".time");
-const date = document.querySelector(".date");
-const bomb = document.querySelector(".bomb");
-const bip = document.querySelector(".bip");
-const potato = document.querySelector(".potato");
-const detonation = document.querySelector(".detonation");
+const init = document.querySelector('.init');
+const time = document.querySelector('.time');
+const date = document.querySelector('.date');
+const bomb = document.querySelector('.bomb');
+const bip = document.querySelector('.bip');
+const potato = document.querySelector('.potato');
+const detonation = document.querySelector('.detonation');
 
 var now = new Date();
 var future = new Date();
 
-init.addEventListener("click", start);
+init.addEventListener('click', start);
+time.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') {
+    start();
+  }
+});
 
 function start() {
-  date.style.display = "block";
-  potato.style.display = "block";
-  potato.src = "assets/potato.png";
+  date.style.display = 'block';
+  potato.style.display = 'block';
+  potato.src = 'assets/potato.png';
   const seconds = Math.abs(time.value);
   console.log(seconds);
 
@@ -44,7 +49,7 @@ function changeTime() {
     date.innerHTML = remainTime;
 
     if (subTime <= 5000) {
-      potato.src = "assets/sad_potato.png";
+      potato.src = 'assets/sad_potato.png';
     }
 
     if (subTime === 16000) {
@@ -52,7 +57,7 @@ function changeTime() {
       bomb.play();
     }
   } else {
-    detonation.style.display = "block";
+    detonation.style.display = 'block';
   }
 }
 
@@ -60,13 +65,13 @@ function animate(duration) {
   potato.animate(
     [
       // keyframes
-      { filter: "saturate(1)" },
-      { filter: "saturate(2)" },
+      { filter: 'saturate(1)' },
+      { filter: 'saturate(2)' },
     ],
     {
       // timing options
       duration,
       iterations: Infinity,
-    }
+    },
   );
 }
