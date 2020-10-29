@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Batata Quente</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Batata Quente</h1>
+
+    <div class="controls">
+      <input
+        type="number"
+        name="time"
+        id="time"
+        class="time"
+        placeholder="Tempo em segundos"
+      />
+      <input type="button" class="init" value="Iniciar" />
+
+      <div class="date" style="display: none"></div>
+    </div>
+    <div class="fading">
+      <img
+        src="assets/potato.png"
+        alt="Potato"
+        class="itens potato"
+        style="display: none"
+      />
+    </div>
+
+    <img
+      src="assets/detonation.png"
+      alt="detonation"
+      class="itens detonation"
+      style="display: none"
+    />
+
+    <audio class="bip">
+      <source src="assets/bip.mp3" type="audio/mp3" />
+    </audio>
+
+    <audio class="bomb">
+      <source src="assets/bomb.mp3" type="audio/mp3" />
+    </audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>
